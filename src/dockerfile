@@ -1,0 +1,32 @@
+FROM python:3.11-alpine as base
+
+FROM base as builder
+
+WORKDIR /install
+
+# install the PostgreSQL client library and gcc for installing psycopg2
+RUN apk update && \
+    apk add libpq-dev gcc musl-dev
+
+# install relevant Python packages
+COPY /requirements/requirements.txt /requirements.txt
+RUN pip install --prefix=/install -r /requirements.txt
+
+FROM base
+
+WORKDIR /usr/src/app
+
+# install the PostgreSQL client library
+RUN apk update && \
+    apk add libpq-dev
+
+# prevent Python from writing .pyc files to disk
+ENV PYTHONDONTWRITEBYTECODE 1
+# ensure that python output is set straight to terminal
+ENV PYTHONUNBUFFERED 1
+
+# copy Python dependencies
+COPY --from=builder /install /usr/local
+
+# add app
+COPY . .
