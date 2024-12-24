@@ -1,6 +1,7 @@
 # fastapi-keycloak-template
 
-An template for fast api in connection with keycloak
+This repository contains a template for a FastAPI with Keyloak as user management.
+An additional database using postgres is considered.
 
 Create an `.env` file with following content:
 
