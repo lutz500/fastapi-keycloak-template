@@ -1,7 +1,14 @@
-# fastapi-keycloak-template
+# FastAPI Keycloak Template
 
-This repository contains a template for a FastAPI with Keyloak as user management.
-An additional database using postgres is considered.
+This repository contains a template for integrating **FastAPI** with **Keycloak** for user management. It also considers an additional database using **PostgreSQL** for storing user and application data.
+
+## Features
+
+- **FastAPI**: Modern web framework for building APIs with Python 3.7+ based on standard Python-type hints.
+- **Keycloak**: Open-source Identity and Access Management for modern applications and services.
+- **PostgreSQL**: Relational database system for storing data.
+- **Docker Compose**: To manage multi-container Docker applications (Keycloak, PostgreSQL, and FastAPI).
+
 
 # Usage
 To use this Code apply the following steps:
